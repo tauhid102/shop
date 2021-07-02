@@ -1,0 +1,132 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/banner/slidepic1.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/slidepic2.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/slidepic3.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/slidepic4.jpg' %}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+{% block livesale %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item hover2">
+          <a class="nav-link active" aria-current="page" href="Diabeties">Diabeties Care</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Baby">Baby Care</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Personal">Personal Care</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Orthopedic">Orthopedic</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Womens">Women Care</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="Skin">Skin Care</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+ </nav>
+ {% endblock livesale %}
+
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+  <h2 id="Womens">Womens Care</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+   {% for w in women_care %}
+  <a href="{% url 'product-detail' w.id %}" class="btn"><div class="item"><img src="{{w.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{w.title}}</span><br><span class="fs-5">Tk. {{w.discounted_price}}</span></div></a>
+   {% endfor %} 
+</div>
+</div>
+<!-- End 1st Product Slider -->
+<!-- 2nd Product Slider -->
+<div class="mx-3">
+ <h2 id="Baby">Baby Care </h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+  {% for b in baby_care %}
+  <a href="{% url 'product-detail' b.id %}" class="btn"><div class="item"><img src="{{b.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{b.title}}</span><br><span class="fs-5">Tk. {{b.discounted_price}}</span></div></a>
+   {% endfor %} 
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+<div class="m-3">
+  <h2 id="Skin">Skin Care</h2>
+ <!-- Slider 3 -->
+ <div class="owl-carousel" id="slider3">
+  {% for s in skin_care %}
+  <a href="{% url 'product-detail' s.id %}" class="btn"><div class="item"><img src="{{s.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{b.title}}</span><br><span class="fs-5">Tk. {{s.discounted_price}}</span></div></a>
+   {% endfor %} 
+ </div>
+</div>
+<div class="m-3">
+  <h2 id="Personal">Personal Care</h2>
+ <!-- Slider 4 -->
+ <div class="owl-carousel" id="slider4">
+  {% for p in personal_care %}
+  <a href="{% url 'product-detail' p.id %}" class="btn"><div class="item"><img src="{{p.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{p.title}}</span><br><span class="fs-5">Tk. {{p.discounted_price}}</span></div></a>
+   {% endfor %}
+ </div>
+</div>
+<div class="m-3">
+  <h2 class="Orthopedic">Orthopedic</h2>
+ <!-- Slider 5 -->
+ <div class="owl-carousel" id="slider5">
+  {% for o in Orthopedic %}
+  <a href="{% url 'product-detail' o.id %}" class="btn"><div class="item"><img src="{{o.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{o.title}}</span><br><span class="fs-5">Tk. {{o.discounted_price}}</span></div></a>
+   {% endfor %}
+ </div>
+</div>
+<div class="m-3">
+  <h2 id="Diabetice">Diabetice</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider6">
+  {% for d in Diabetice %}
+  <a href="{% url 'product-detail' d.id %}" class="btn"><div class="item"><img src="{{d.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{d.title}}</span><br><span class="fs-5">Tk. {{d.discounted_price}}</span></div></a>
+   {% endfor %}
+ </div>
+</div>
+{% endblock main-content %}
